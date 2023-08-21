@@ -162,7 +162,6 @@ public:
 
     #pragma unroll(IterationsUnroll ? Visitor::kIterations : 1)
     for (int iter_idx = 0; iter_idx < Visitor::kIterations; ++iter_idx) {
-
       //
       // Load the source
       //

@@ -347,13 +347,13 @@ public:
   /// Executes one GEMM
   CUTLASS_DEVICE
   void operator()(Params const &params, SharedStorage &shared_storage) {
-
     // Compute threadblock location
     ThreadblockSwizzle threadblock_swizzle;
 
     cutlass::gemm::GemmCoord threadblock_tile_offset = threadblock_swizzle.get_tile_offset(params.swizzle_log_tile);
 
     // Early exit if CTA is out of range
+
     if (params.grid_tiled_shape.m() <= threadblock_tile_offset.m() ||
       params.grid_tiled_shape.n() <= threadblock_tile_offset.n()) {
 
@@ -424,6 +424,7 @@ public:
 
     // Construct thread-scoped matrix multiply
     Mma mma(shared_storage.main_loop, thread_idx, warp_idx, lane_idx);
+
 
     typename Mma::FragmentC accumulators;
 

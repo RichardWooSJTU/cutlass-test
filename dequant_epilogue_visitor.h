@@ -223,6 +223,8 @@ public:
 
         ComputeFragment result = source_converter(accum);
 
+        // printf("start_row:%d start_col:%d\niter_idx: %d, row_idx: %d, column_idx: %d, frag_idx: %d, i: %d, item: %f\n", iterator_D_.thread_start_row(), iterator_D_.thread_start_column(), iter_idx, row_idx, column_idx, frag_idx, i, result[i]);
+
         ComputeFragment alpha_col = reinterpret_cast<ComputeFragment*>(&fragment_dequant_scale_)[frag_idx];
         result                    = per_token_channel_scale_accumulator_(result, alpha_col, element_alpha_row_);
 

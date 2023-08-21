@@ -1,3 +1,4 @@
 log
 *.ncu-rep
 gemm_dequant
+*.so
